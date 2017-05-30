@@ -11,4 +11,5 @@ require "trinet_auth"
 # Pry.start
 
 require "irb"
+ENV["DEBUG"] = "yes"
 IRB.start(__FILE__)
