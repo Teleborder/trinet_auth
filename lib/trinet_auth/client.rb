@@ -5,7 +5,6 @@ require 'trinet_auth/version'
 require 'trinet_auth/configuration'
 require 'trinet_auth/client/auth'
 
-require 'byebug'
 module TrinetAuth
   class RequestError < StandardError; end
 
@@ -50,10 +49,9 @@ module TrinetAuth
     def request(method, path, parameters, body = nil)
       response = connection.send(method.to_sym, path, parameters) do |req|
         req.params['realm'] = 'sw_hrp'
-        unless @token.nil?
-          req.headers['Cookie'] = "#{self.cookie_name}=#{@token}"
+        unless auth_token.nil?
+          req.headers['Cookie'] = "#{cookie_name}=#{auth_token}"
         end
-        byebug
         unless body.nil?
           req.headers['Content-Type'] = 'application/json'
           req.body = body.to_json
