@@ -72,6 +72,5 @@ module TrinetAuth
         conn.response :logger if ENV["DEBUG"]
       end
     end
-
   end
 end
