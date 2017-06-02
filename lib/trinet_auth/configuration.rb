@@ -4,7 +4,7 @@ require File.expand_path('../version', __FILE__)
 module TrinetAuth
   # Defines constants and methods related to configuration
   module Configuration
-    # An array of valid keys in the options hash when configuring a {Instagram::API}
+    # An array of valid keys in the options hash when configuring a TrinetAuth client
     VALID_OPTIONS_KEYS = [
       :adapter,
       :endpoint,
