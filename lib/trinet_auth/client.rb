@@ -63,7 +63,7 @@ module TrinetAuth
     end
 
     def connection
-      Faraday.new(endpoint) do |conn|
+      Faraday.new(endpoint, proxy: proxy) do |conn|
         conn.use Faraday::Response::RaiseError
         conn.request :url_encoded
         conn.response :json, :content_type => /\bjson$/

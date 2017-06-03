@@ -11,7 +11,8 @@ module TrinetAuth
       :format,
       :user_agent,
       :cookie_name,
-      :auth_token
+      :auth_token,
+      :proxy
     ].freeze
 
     # The adapter that will be used to connect if none is set
@@ -67,6 +68,7 @@ module TrinetAuth
       self.user_agent = DEFAULT_USER_AGENT
       self.cookie_name = DEFAULT_COOKIE_NAME
       self.auth_token = nil
+      self.proxy = nil
     end
   end
 end
